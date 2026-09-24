@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Product, ProductCategory, ProductResponse } from '../../../models/product.model';
+import {HttpClient} from "@angular/common/http";
 
 const image = (id: number) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=900&q=85`;
@@ -154,29 +155,6 @@ const MOCK_PRODUCTS: Product[] = [
 
 const MOCK_CATEGORIES: ProductCategory[] = [
   'beauty',
-  'fragrances',
-  'furniture',
-  'groceries',
-  'home-decoration',
-  'kitchen-accessories',
-  'laptops',
-  'mens-shirts',
-  'mens-shoes',
-  'mens-watches',
-  'mobile-accessories',
-  'motorcycle',
-  'skin-care',
-  'smartphones',
-  'sports-accessories',
-  'sunglasses',
-  'tablets',
-  'tops',
-  'vehicle',
-  'womens-bags',
-  'womens-dresses',
-  'womens-jewellery',
-  'womens-shoes',
-  'womens-watches',
 ].map((slug) => ({
   slug,
   name: slug
@@ -188,16 +166,18 @@ const MOCK_CATEGORIES: ProductCategory[] = [
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
+
+  private http = inject(HttpClient);
+
   getProducts(): Observable<ProductResponse> {
-    return of({
-      products: MOCK_PRODUCTS,
-      total: MOCK_PRODUCTS.length,
-      skip: 0,
-      limit: MOCK_PRODUCTS.length,
-    });
+    return this.http.get<ProductResponse>(`https://dummyjson.com/products`);
+  }
+
+  getProductsByCategory( slug : string): Observable<ProductResponse> {
+    return this.http.get<ProductResponse>(`https://dummyjson.com/products/category/${slug}`);
   }
 
   getCategories(): Observable<ProductCategory[]> {
-    return of(MOCK_CATEGORIES);
+    return this.http.get<ProductCategory[]>(`https://dummyjson.com/products/categories`);
   }
 }

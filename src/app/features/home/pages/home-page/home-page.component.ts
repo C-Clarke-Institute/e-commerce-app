@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../../../models/product.model';
+import {Product, ProductCategory} from '../../../../models/product.model';
 import { CartService } from '../../../cart/services/cart.service';
 import { ProductService } from '../../../products/services/product.service';
 import { ProductCardComponent } from '../../../../shared/components/product-card/product-card.component';
@@ -13,6 +13,7 @@ import { ProductCardComponent } from '../../../../shared/components/product-card
 })
 export class HomePageComponent implements OnInit {
   products: Product[] = [];
+  categories: ProductCategory[] = [];
   visibleProducts: Product[] = [];
   selectedCategory = 'All products';
   searchTerm = '';
@@ -23,6 +24,9 @@ export class HomePageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.productService.getCategories().subscribe( response => {
+      this.categories = response;
+    })
     this.productService.getProducts().subscribe((response) => {
       this.products = response.products;
       this.filterProducts();
@@ -44,7 +48,19 @@ export class HomePageComponent implements OnInit {
 
   setCategory(category: string): void {
     this.selectedCategory = category;
-    this.filterProducts();
+    if (this.selectedCategory === 'All products') {
+      this.productService.getProducts().subscribe((response) => {
+        this.products = response.products;
+        this.filterProducts();
+      });
+    } else {
+      this.productService.getProductsByCategory( category ).subscribe( response => {
+        this.products = response.products;
+        this.visibleProducts = response.products;
+      })
+    }
+
+    // this.filterProducts();
   }
   setSearch(term: string): void {
     this.searchTerm = term;

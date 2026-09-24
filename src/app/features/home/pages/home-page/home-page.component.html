@@ -58,19 +58,14 @@
         (click)="setCategory('All products')"
       >
         All</button
-      ><button [class.active]="selectedCategory === 'Fashion'" (click)="setCategory('Fashion')">
-        Fashion</button
-      ><button
-        [class.active]="selectedCategory === 'Accessories'"
-        (click)="setCategory('Accessories')"
       >
-        Accessories</button
-      ><button
-        [class.active]="selectedCategory === 'Electronics'"
-        (click)="setCategory('Electronics')"
-      >
-        Electronics
-      </button>
+        @for ( category of categories; track category.slug)  {
+            <button
+                    [class.active]="selectedCategory === category.slug"
+                    (click)="setCategory(category.slug)"
+            >
+                {{ category.name}}</button>
+        }
     </div>
     <div class="product-grid">
       @for (product of visibleProducts; track product.id) {
