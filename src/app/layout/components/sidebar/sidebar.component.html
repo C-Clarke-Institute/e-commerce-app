@@ -1,0 +1,15 @@
+<aside class="sidebar">
+  <div class="side-title">Categories <span>⌄</span></div>
+  <button class="category-link active" (click)="categorySelected.emit('')">
+    All Products <span>›</span>
+  </button>
+  @for (category of categories; track category.slug) {
+    <button class="category-link" (click)="categorySelected.emit(category.slug)">
+      {{ category.name }} <span>›</span>
+    </button>
+  }
+  <div class="side-promo">
+    <small>NEW USER OFFER</small><strong>Up to 20%<br />off today</strong
+    ><button>Shop now →</button>
+  </div>
+</aside>

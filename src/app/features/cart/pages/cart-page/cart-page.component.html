@@ -1,0 +1,50 @@
+<main class="cart-page">
+  <div class="cart-heading">
+    <p class="eyebrow">Your shopping bag</p>
+    <h1>
+      Cart <span>({{ cart.itemCount() }})</span>
+    </h1>
+  </div>
+  @if (items.length) {
+    <div class="cart-layout">
+      <section class="cart-list">
+        @for (item of items; track item.product.id) {
+          <article class="cart-item">
+            <img [src]="item.product.thumbnail" [alt]="item.product.title" />
+            <div class="cart-copy">
+              <h3>{{ item.product.title }}</h3>
+              <p>{{ item.product.brand }} · {{ item.product.category }}</p>
+              <button (click)="remove(item)">Remove</button>
+            </div>
+            <div class="quantity">
+              <button (click)="update(item, -1)">−</button><b>{{ item.quantity }}</b
+              ><button (click)="update(item, 1)">+</button>
+            </div>
+            <strong>{{
+              item.product.price * item.quantity | currency: 'LKR' : 'symbol' : '1.0-0'
+            }}</strong>
+          </article>
+        }
+      </section>
+      <aside class="summary">
+        <h2>Order Summary</h2>
+        <div>
+          <span>Subtotal</span><b>{{ cart.subtotal() | currency: 'LKR' : 'symbol' : '1.0-0' }}</b>
+        </div>
+        <div><span>Delivery</span><b class="free">FREE</b></div>
+        <hr />
+        <div class="grand">
+          <span>Total</span><b>{{ cart.subtotal() | currency: 'LKR' : 'symbol' : '1.0-0' }}</b>
+        </div>
+        <button class="checkout">Proceed to Checkout →</button
+        ><small>Safe and secure payments</small>
+      </aside>
+    </div>
+  } @else {
+    <section class="empty-cart">
+      <span>🛒</span>
+      <h2>Your cart is empty</h2>
+      <p>Looks like you haven't added anything yet.</p>
+    </section>
+  }
+</main>

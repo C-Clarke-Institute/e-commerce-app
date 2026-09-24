@@ -1,0 +1,147 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+.product-card {
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px #00000012;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px #0000001a;
+}
+.image-wrap {
+  height: 230px;
+  background: #f7f7f7;
+  position: relative;
+  overflow: hidden;
+}
+.image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s;
+}
+.product-card:hover img {
+  transform: scale(1.04);
+}
+.badge {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  z-index: 1;
+  padding: 4px 6px;
+  font-size: 10px;
+  background: #fff0e6;
+  color: #f57224;
+}
+.wishlist {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 22px;
+  color: #555;
+  z-index: 1;
+}
+.add-button {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  padding: 9px;
+  background: #f57224;
+  color: #fff;
+  border-radius: 3px;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: 0.2s;
+  font-size: 12px;
+}
+.product-card:hover .add-button {
+  opacity: 1;
+  transform: translateY(0);
+}
+.product-copy {
+  padding: 12px;
+}
+.product-copy h3 {
+  margin: 0 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+.rating {
+  display: flex;
+  justify-content: space-between;
+  color: #f57224;
+  font-size: 12px;
+}
+.rating small {
+  color: #999;
+}
+.price-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 9px;
+}
+.price-row strong {
+  font-size: 17px;
+  color: #f57224;
+}
+.price-row del {
+  color: #aaa;
+  font-size: 11px;
+}
+.product-card {
+  border: 1px solid #edf0f2;
+  border-radius: 8px;
+  box-shadow: 0 2px 7px #2531430c;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px #2531431c;
+  border-color: #ffd6bf;
+}
+.image-wrap {
+  height: 245px;
+}
+.image-wrap img {
+  object-position: center;
+}
+.badge {
+  border-radius: 3px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.wishlist {
+  transition:
+    color 0.2s,
+    transform 0.2s;
+}
+.wishlist:hover {
+  color: #f57224;
+  transform: scale(1.12);
+}
+.add-button {
+  border-radius: 5px;
+  box-shadow: 0 4px 12px #f5722440;
+}
+.product-copy {
+  padding: 14px 14px 16px;
+}
+.product-copy h3 {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+.rating span {
+  font-weight: 600;
+}

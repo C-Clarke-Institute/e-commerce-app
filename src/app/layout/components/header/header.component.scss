@@ -1,0 +1,124 @@
+.header {
+  height: 70px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  background: #f57224;
+  color: #fff;
+}
+.hamburger {
+  display: none;
+  color: #fff;
+  font-size: 21px;
+}
+.logo {
+  font-weight: 800;
+  letter-spacing: -2px;
+  font-size: 30px;
+  color: #fff;
+}
+.logo span {
+  color: #ffd5b8;
+}
+.search {
+  flex: 1;
+  max-width: 600px;
+  height: 40px;
+  display: flex;
+  background: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.search input {
+  flex: 1;
+  border: 0;
+  padding: 0 15px;
+  outline: 0;
+  font-size: 13px;
+}
+.search button {
+  width: 50px;
+  background: #ffe1cf;
+  color: #f57224;
+  font-size: 22px;
+}
+.header-link {
+  position: relative;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+}
+.header-link small {
+  display: block;
+  font-size: 10px;
+}
+.header-link b {
+  position: absolute;
+  top: -5px;
+  right: -6px;
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  color: #f57224;
+}
+.login,
+.signup {
+  color: #fff;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.divider {
+  color: #ffd1b0;
+}
+.signup {
+  text-decoration: underline;
+}
+.header {
+  height: 74px;
+  padding: 0 max(24px, calc((100vw - 1440px) / 2));
+  gap: 24px;
+  background: linear-gradient(100deg, #f57224 0%, #f8782a 65%, #ed671c 100%);
+  box-shadow: 0 2px 8px #9b3d0b33;
+  position: relative;
+  z-index: 10;
+}
+.logo {
+  font-size: 32px;
+  text-shadow: 0 2px 0 #d9560c44;
+}
+.search {
+  height: 44px;
+  max-width: 680px;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px #a7430b29;
+}
+.search input {
+  font-size: 13px;
+}
+.search button {
+  width: 56px;
+  background: #fff2e9;
+  transition: background 0.2s;
+}
+.search button:hover {
+  background: #ffe2d1;
+}
+.header-link {
+  opacity: 0.95;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+.header-link:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+.login,
+.signup {
+  font-size: 12px;
+}

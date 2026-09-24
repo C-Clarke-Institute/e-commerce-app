@@ -1,0 +1,11 @@
+<app-header
+  [cartCount]="cartCount"
+  (searchChanged)="searchChanged.emit($event)"
+  (cartClicked)="cartClicked.emit()"
+  (pageSelected)="pageSelected.emit($event)"
+/>
+<div class="workspace">
+  <app-sidebar (categorySelected)="categorySelected.emit($event)" />
+  <section class="content"><ng-content /></section>
+</div>
+<app-footer />

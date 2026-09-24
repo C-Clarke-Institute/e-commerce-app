@@ -1,0 +1,50 @@
+<main class="products-page">
+  <div class="page-heading">
+    <div>
+      <p class="eyebrow">Daraz collection</p>
+      <h1>All products</h1>
+      <p>Find what you need from our hand-picked everyday selection.</p>
+    </div>
+    <span class="result-count">{{ visibleProducts.length }} products</span>
+  </div>
+  <div class="filters">
+    <div class="pills">
+      <button
+        [class.active]="selectedCategory === 'All products'"
+        (click)="chooseCategory('All products')"
+      >
+        All</button
+      ><button [class.active]="selectedCategory === 'Fashion'" (click)="chooseCategory('Fashion')">
+        Fashion</button
+      ><button
+        [class.active]="selectedCategory === 'Accessories'"
+        (click)="chooseCategory('Accessories')"
+      >
+        Accessories</button
+      ><button
+        [class.active]="selectedCategory === 'Electronics'"
+        (click)="chooseCategory('Electronics')"
+      >
+        Electronics
+      </button>
+    </div>
+    <select [(ngModel)]="sortBy" (ngModelChange)="filterProducts()">
+      <option value="featured">Featured</option>
+      <option value="rating">Top rated</option>
+      <option value="low">Price: low to high</option>
+      <option value="high">Price: high to low</option>
+    </select>
+  </div>
+  <div class="product-grid">
+    @for (product of visibleProducts; track product.id) {
+      <div (click)="productSelected.emit(product)">
+        <app-product-card [product]="product" (addToCart)="addToCart($event)" />
+      </div>
+    } @empty {
+      <div class="empty">
+        <h2>No products found</h2>
+        <p>Try another search or choose a different category.</p>
+      </div>
+    }
+  </div>
+</main>

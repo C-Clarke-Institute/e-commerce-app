@@ -1,0 +1,21 @@
+<article class="product-card">
+  <div class="image-wrap">
+    <span class="badge">{{ product.discountPercentage }}% OFF</span>
+    <img [src]="product.thumbnail" [alt]="product.title" />
+    <button class="wishlist" aria-label="Add to wishlist">♡</button>
+    <button class="add-button" (click)="$event.stopPropagation(); addToCart.emit(product)">
+      Add to Cart
+    </button>
+  </div>
+  <div class="product-copy">
+    <h3>{{ product.title }}</h3>
+    <div class="rating">
+      <span>★ {{ product.rating }}</span
+      ><small>{{ product.stock }} left</small>
+    </div>
+    <div class="price-row">
+      <strong>{{ product.price | currency: 'LKR' : 'symbol' : '1.0-0' }}</strong
+      ><del>{{ product.price * 1.18 | currency: 'LKR' : 'symbol' : '1.0-0' }}</del>
+    </div>
+  </div>
+</article>

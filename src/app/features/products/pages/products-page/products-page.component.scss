@@ -1,0 +1,140 @@
+.products-page {
+  padding: 32px 24px 60px;
+  max-width: 1220px;
+  margin: auto;
+}
+.page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding: 10px 0 26px;
+}
+.eyebrow {
+  margin: 0 0 8px;
+  color: #f57224;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-size: 10px;
+}
+.page-heading h1 {
+  margin: 0;
+  color: #333;
+  font-size: 32px;
+  font-weight: 500;
+}
+.page-heading p:last-child {
+  color: #888;
+  font-size: 13px;
+}
+.result-count {
+  color: #999;
+  font-size: 12px;
+}
+.filters {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 13px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.pills {
+  display: flex;
+  gap: 22px;
+}
+.pills button {
+  color: #888;
+  font-size: 12px;
+  padding-bottom: 5px;
+}
+.pills button.active {
+  color: #f57224;
+  border-bottom: 2px solid #f57224;
+}
+.filters select {
+  border: 1px solid #ddd;
+  color: #666;
+  padding: 7px 10px;
+  font-size: 11px;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;
+}
+.product-grid > div {
+  min-width: 0;
+  cursor: pointer;
+}
+.empty {
+  grid-column: 1/-1;
+  min-height: 260px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  color: #888;
+}
+.empty h2 {
+  color: #444;
+  font-weight: 500;
+}
+.empty p {
+  font-size: 13px;
+}
+@media (max-width: 800px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .products-page {
+    padding: 20px 12px;
+  }
+  .page-heading {
+    display: block;
+  }
+  .result-count {
+    display: block;
+    margin-top: 12px;
+  }
+  .filters {
+    display: block;
+  }
+  .pills {
+    gap: 14px;
+    overflow: auto;
+    padding-bottom: 12px;
+    white-space: nowrap;
+  }
+  .filters select {
+    width: 100%;
+  }
+  .product-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.products-page {
+  padding: 36px 28px 72px;
+}
+.page-heading {
+  padding: 8px 0 30px;
+}
+.page-heading h1 {
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+.filters {
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 9px #2531430c;
+  padding: 15px 18px;
+}
+.filters select {
+  border-radius: 5px;
+  background: #fff;
+}
+.product-grid {
+  gap: 16px;
+}

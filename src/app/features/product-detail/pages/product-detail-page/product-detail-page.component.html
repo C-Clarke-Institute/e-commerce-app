@@ -1,0 +1,53 @@
+@if (product) {
+  <main class="detail-page">
+    <button class="back" (click)="backToProducts.emit()">‹ Back to products</button>
+    <div class="detail-layout">
+      <section class="gallery">
+        <div class="main-image">
+          <span class="discount">{{ product.discountPercentage }}% OFF</span
+          ><img [src]="selectedImage" [alt]="product.title" />
+        </div>
+        <div class="thumbs">
+          <button
+            [class.active]="selectedImage === product.thumbnail"
+            (click)="selectedImage = product.thumbnail"
+          >
+            <img [src]="product.thumbnail" [alt]="product.title" />
+          </button>
+        </div>
+      </section>
+      <section class="detail-copy">
+        <p class="category">{{ product.category }} · {{ product.brand }}</p>
+        <h1>{{ product.title }}</h1>
+        <div class="review-line">
+          <span>★ {{ product.rating }}</span> <u>See all reviews</u>
+        </div>
+        <div class="detail-price">
+          {{ product.price | currency: 'LKR' : 'symbol' : '1.0-0' }}
+          <del>{{ product.price * 1.18 | currency: 'LKR' : 'symbol' : '1.0-0' }}</del>
+        </div>
+        <p class="description">{{ product.description }}</p>
+        <div class="delivery">
+          <strong>🚚 Delivery options</strong
+          ><span>Ships in 2–3 days · Free delivery available</span>
+        </div>
+        <div class="quantity-row">
+          <span>Quantity</span
+          ><button (click)="quantity = quantity > 1 ? quantity - 1 : 1">−</button
+          ><b>{{ quantity }}</b
+          ><button (click)="quantity = quantity + 1">+</button>
+        </div>
+        <div class="action-row">
+          <button class="buy-now" (click)="addToCart()">Add to Cart</button
+          ><button class="wishlist">♡</button>
+        </div>
+        <div class="trust">
+          <span>✓ 30 days easy return</span><span>✓ Secure payments</span
+          ><span>✓ Authentic product</span>
+        </div>
+      </section>
+    </div>
+  </main>
+} @else {
+  <p class="not-found">Product not found.</p>
+}

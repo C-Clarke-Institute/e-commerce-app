@@ -1,0 +1,17 @@
+<header class="header">
+  <button class="hamburger">☰</button
+  ><button class="logo" (click)="pageSelected.emit('home')">daraz<span>.</span></button>
+  <div class="search">
+    <input
+      [(ngModel)]="search"
+      (ngModelChange)="searchChanged.emit($event)"
+      placeholder="Search in Daraz"
+    /><button (click)="pageSelected.emit('products')">⌕</button>
+  </div>
+  <button class="header-link" (click)="pageSelected.emit('products')">
+    ♡ <small>Wishlist</small></button
+  ><button class="header-link" (click)="cartClicked.emit()">
+    🛒 <small>Cart</small><b>{{ cartCount }}</b></button
+  ><button class="login">Login</button><span class="divider">|</span
+  ><button class="signup">Sign Up</button>
+</header>

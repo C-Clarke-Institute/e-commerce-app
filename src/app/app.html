@@ -1,0 +1,9 @@
+<app-shell
+  [cartCount]="cart.itemCount()"
+  (searchChanged)="handleSearch($event)"
+  (categorySelected)="handleCategory($event)"
+  (cartClicked)="openCart()"
+  (pageSelected)="navigate($event)"
+>
+  <app-home-page />
+</app-shell>
